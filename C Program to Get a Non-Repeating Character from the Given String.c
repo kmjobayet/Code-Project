@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+char firstNonRepeating(char str[]) {
+    int count[256] = {0};
+    for (int i = 0; str[i]; i++) count[(unsigned char)str[i]]++;
+    for (int i = 0; str[i]; i++) if (count[(unsigned char)str[i]] == 1) return str[i];
+    return '\0';
+}
+
+int main() {
+    char str[100];
+    printf("Enter string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = 0;
+    char ch = firstNonRepeating(str);
+    if (ch) printf("First non-repeating character: %c\n", ch);
+    else printf("No non-repeating character found.\n");
+    return 0;
+}
