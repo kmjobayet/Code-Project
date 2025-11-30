@@ -1,17 +1,15 @@
 #include <stdio.h>
 
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 int main() {
-    int a, b, temp;
-
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
-
-    // Swap using a temporary variable
-    temp = a;
-    a = b;
-    b = temp;
-
-    printf("After swapping: a = %d, b = %d\n", a, b);
-
+    int x = 5, y = 10;
+    printf("Before swap: x=%d, y=%d\n", x, y);
+    swap(&x, &y);
+    printf("After swap: x=%d, y=%d\n", x, y);
     return 0;
 }
